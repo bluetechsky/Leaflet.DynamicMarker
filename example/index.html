@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet dynamic marker debug page</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="../lib/leaflet-dist/leaflet.css" />
+	<link rel="stylesheet" href="../src/leaflet_dynamic_marker.css" />
+
+	<script src="../lib/leaflet-dist/leaflet.js"></script>
+	<script src="../src/leaflet_dynamic_marker.js"></script>
+	
+</head>
+<body>
+
+	<div id="map" style="width: 600px; height: 600px; border: 1px solid #ccc"></div>
+	<button id="populate">Populate with 10 markers</button>
+
+	<script type="text/javascript">
+		function getRandomLatLng(map) {
+			var bounds = map.getBounds(),
+				southWest = bounds.getSouthWest(),
+				northEast = bounds.getNorthEast(),
+				lngSpan = northEast.lng - southWest.lng,
+				latSpan = northEast.lat - southWest.lat;
+
+			return new L.LatLng(
+				southWest.lat + latSpan * Math.random(),
+				southWest.lng + lngSpan * Math.random()
+			);
+		}
+
+		var osmUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+			osmAttribution = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+			osm = new L.TileLayer(osmUrl, {maxZoom: 18, attribution: osmAttribution}),
+			latlng = new L.LatLng(21.0278, 105.8342);
+
+		var map = new L.Map('map', {center: latlng, zoom: 10, layers: [osm]});
+		
+		var markers = new L.FeatureGroup();
+		var colors = ["green", "yellow", "orange", "red", "purple", "maroon"];
+		
+		
+		function populate() {
+			for (var i = 0; i < 10; i++) {
+				var random_index = Math.floor(Math.random() * 6) + 1; //6 elements in colors array 
+				var random_color = colors[random_index];
+				var random_number = Math.floor(Math.random() * 500) + 0; //0-500
+				
+				markers.addLayer(
+					new L.Marker(
+						getRandomLatLng(map),
+						{ 
+							icon: 
+								new L.DynamicMarker({
+				                      //number: 1, 
+				                      //markerColor: "blue"
+				                      number: random_number,
+				                      markerColor: random_color
+				                  })
+						}
+					)
+				);
+			}
+			return false;
+		}
+
+		markers.bindPopup("<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p><p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque.</p>");
+
+		map.addLayer(markers);
+
+		populate();
+		L.DomUtil.get('populate').onclick = populate;
+	</script>
+</body>
+</html>

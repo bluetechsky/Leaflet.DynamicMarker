@@ -1,0 +1,112 @@
+/* Marker setup */
+.dynamic-marker {
+  background: url('images/dynamic_marker.png') no-repeat 0 0;
+  width: 35px;
+  height: 46px;
+  position:absolute;
+  left:0;
+  top:0;
+  display: block;
+  text-align: center;
+}
+
+.dynamic-marker span {
+  color: #333;
+  margin-top: 6px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.dynamic-marker .icon-white {
+  color: #fff;
+}
+
+/* Colors */
+.dynamic-marker-icon-green {
+  background-position: -72px 0;
+}
+
+.dynamic-marker-icon-yellow { /*need to locate*/
+  background-position: -72px 0;
+}
+
+.dynamic-marker-icon-orange {
+  background-position: -36px 0;
+}
+
+.dynamic-marker-icon-red {
+  background-position: 0 0;
+}
+
+.dynamic-marker-icon-purple {
+  background-position: -144px 0;
+}
+
+.dynamic-marker-icon-maroon {/*need to locate*/
+  background-position: -72px 0;
+}
+
+.dynamic-marker-icon-darkred {
+  background-position: -180px 0;
+}
+
+.dynamic-marker-icon-lightred {
+  background-position: -360px 0;
+}
+
+
+.dynamic-marker-icon-beige {
+  background-position: -396px 0;
+}
+
+
+
+.dynamic-marker-icon-darkgreen {
+  background-position: -252px 0;
+}
+
+.dynamic-marker-icon-lightgreen {
+  background-position: -432px 0;
+}
+
+.dynamic-marker-icon-blue {
+  background-position: -108px 0;
+}
+
+.dynamic-marker-icon-darkblue {
+  background-position: -216px 0;
+}
+
+.dynamic-marker-icon-lightblue {
+  background-position: -468px 0;
+}
+
+
+
+.dynamic-marker-icon-darkpurple {
+  background-position: -288px 0;
+}
+
+.dynamic-marker-icon-pink {
+  background-position: -504px 0;
+}
+
+.dynamic-marker-icon-cadetblue {
+  background-position: -324px 0;
+}
+
+.dynamic-marker-icon-white {
+  background-position: -574px 0;
+}
+
+.dynamic-marker-icon-gray {
+  background-position: -648px 0;
+}
+
+.dynamic-marker-icon-lightgray {
+  background-position: -612px 0;
+}
+
+.dynamic-marker-icon-black {
+  background-position: -682px 0;
+}
